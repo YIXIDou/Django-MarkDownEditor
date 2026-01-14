@@ -1,8 +1,10 @@
 # 🚀 基于 Django 的个人技术博客系统
 
-> 🎓 东华大学 202x级 计算机科学与技术专业《专业导论》大作业  
+> 🎓 计算机科学与技术专业《专业导论》大作业
+> 
 > 👨‍💻 开发者：翼熙 (YIXI)
-
+> 
+> 项目参考：[Django Blog (Corey Schafer Version)](https://github.com/CoreyMSchafer/code_snippets)
 ## 📖 项目简介
 这是一个基于 **Django 5.x** 框架开发的全栈 Web 应用。旨在解决现有博客平台不支持 **Markdown** 原生语法的痛点，为开发者提供一个“所见即所得”的沉浸式创作环境。
 
@@ -22,7 +24,8 @@
 *(此处可以以后放一张你的运行截图)*
 
 ## 🔮 未来展望
-计划引入 **RSS 订阅** 与 **qBittorrent** 联动，打造自动化的二次元内容生态闭环。
+计划引入 **RSS 订阅** 与 **qBittorrent** 联动，打造自动化的内容生态闭环。
+
 
 ---
 *Created with ❤️ by YIXI*
