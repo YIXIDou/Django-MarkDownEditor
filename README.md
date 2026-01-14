@@ -20,8 +20,6 @@
 - **Database**: SQLite (Dev)
 - **Tools**: Git, VS Code
 
-## 📸 功能演示
-*(此处可以以后放一张你的运行截图)*
 
 ## 🔮 未来展望
 计划引入 **RSS 订阅** 与 **qBittorrent** 联动，打造自动化的内容生态闭环。
