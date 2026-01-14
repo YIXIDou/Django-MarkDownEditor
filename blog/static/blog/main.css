@@ -82,3 +82,86 @@ a.article-title:hover {
 .account-heading {
   font-size: 2.5rem;
 }
+
+/* =========================================
+   Markdown 编辑器美化 (Side-by-Side Editor)
+   ========================================= */
+
+/* 1. 整个编辑器的外壳 */
+.markdownx {
+    display: grid;                /* 启用网格布局 */
+    grid-template-columns: 1fr 1fr; /* 左右 1:1 等分 */
+    gap: 0;                       /* 中间不留缝隙，用边框分隔 */
+    border: 1px solid #d1d5da;    /* 灰色外边框 */
+    border-radius: 6px;           /* 圆角 */
+    background-color: #ffffff;
+    overflow: hidden;             /* 防止内容溢出圆角 */
+    margin-bottom: 20px;
+}
+
+/* 2. 左侧：编辑区 (输入框) */
+.markdownx-editor {
+    border: none !important;             /* 去掉默认边框 */
+    border-right: 1px solid #d1d5da !important; /* 加右侧分割线 */
+    padding: 15px !important;            /* 内边距 */
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace !important; /* 代码字体 */
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 500px;                   /* 增加高度，写起来更爽 */
+    resize: none;                        /* 禁止手动拉伸 (由容器控制) */
+    background-color: #f6f8fa;           /* 极淡的灰色背景，区分编辑区 */
+}
+
+.markdownx-editor:focus {
+    background-color: #ffffff;           /* 聚焦时变白 */
+    box-shadow: none !important;         /* 去掉蓝色的发光圈 */
+    outline: none;
+}
+
+/* 3. 右侧：预览区 */
+.markdownx-preview {
+    padding: 15px;
+    background-color: #ffffff;
+    overflow-y: auto;          /* 内容太长时允许上下滚动 */
+    max-height: 500px;         /* 高度跟随编辑区 */
+}
+
+/* 4. 增加伪元素“标签”：给用户提示哪里是哪里 */
+/* 由于 textarea 无法加伪元素，我们利用父容器背景或占位符提示，
+   这里我们用一个技巧：给预览区加个可视化的 Header */
+
+.markdownx-preview::before {
+    content: "👁️ 实时预览 (Live Preview)";
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    color: #999;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* 手机端适配：屏幕变窄时改为上下排列 */
+@media (max-width: 768px) {
+    .markdownx {
+        grid-template-columns: 1fr; /* 改为单列 */
+    }
+    .markdownx-editor {
+        border-right: none !important;
+        border-bottom: 1px solid #d1d5da !important;
+        min-height: 200px;
+    }
+    .markdownx-preview {
+        max-height: none;
+        background-color: #fafafa;
+    }
+}
+
+/* 优化预览区内的图片显示 */
+.markdownx-preview img {
+    max-width: 100%;       /* 防止大图撑破布局 */
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
